@@ -12,6 +12,8 @@ import Resizable from 're-resizable';
 import { styles } from '/imports/ui/components/app/styles';
 import _ from 'lodash';
 import { withLayoutConsumer } from '/imports/ui/components/layout/context';
+//Custom code. 
+import Service from './service';
 import {
   USERLIST_MIN_WIDTH,
   USERLIST_MAX_WIDTH,
@@ -314,6 +316,9 @@ class PanelManager extends Component {
 
     const ariaHidden = shouldAriaHide() && openPanel !== 'userlist';
 
+   // Custom code 
+    if (Service.amIModerator){
+
     return (
       <div
         data-test="userListPanel"
@@ -322,9 +327,26 @@ class PanelManager extends Component {
         key={enableResize ? null : this.userlistKey}
         aria-hidden={ariaHidden}
       >
+	<div id="bbb-tanjil-iframe-loader">
+	    <iframe width="100%" height="850" src="https://tanzil.net/#1:1" title="Tanzil.net" frameborder="0" ></iframe>
+	</div>
         <UserListContainer />
       </div>
     );
+   }else{
+     return (
+          <div
+              data-test="userListPanel"
+              className={styles.userList}
+              aria-label={intl.formatMessage(intlMessages.userListLabel)}
+              key={enableResize ? null : this.userlistKey}
+              aria-hidden={ariaHidden}
+          >
+            <UserListContainer />
+          </div>
+      );
+}
+
   }
 
   renderUserListResizable() {
