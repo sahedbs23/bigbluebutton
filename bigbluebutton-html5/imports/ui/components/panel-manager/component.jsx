@@ -317,7 +317,9 @@ class PanelManager extends Component {
     const ariaHidden = shouldAriaHide() && openPanel !== 'userlist';
 
    // Custom code 
-    if (Service.amIModerator){
+
+	  console.log(Service.amIModerator());
+	  if (Service.amIModerator()){
 
     return (
       <div
@@ -327,10 +329,11 @@ class PanelManager extends Component {
         key={enableResize ? null : this.userlistKey}
         aria-hidden={ariaHidden}
       >
-	<div id="bbb-tanjil-iframe-loader">
-	    <iframe width="100%" height="850" src="https://tanzil.net/#1:1" title="Tanzil.net" frameborder="0" ></iframe>
-	</div>
-        <UserListContainer />
+	    <UserListContainer />
+
+	    <div id="bbb-tanjil-iframe-loader">
+	      <iframe width="100%" height="850" src="https://tanzil.net/#1:1" title="Tanzil.net" frameborder="0" ></iframe>
+	    </div>
       </div>
     );
    }else{

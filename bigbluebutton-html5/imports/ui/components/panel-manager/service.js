@@ -1,3 +1,4 @@
+import Auth from '/imports/ui/services/auth';
 import Users from '/imports/api/users';
 
 const ROLE_MODERATOR = Meteor.settings.public.user.role_moderator;
